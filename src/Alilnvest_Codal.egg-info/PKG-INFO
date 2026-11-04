@@ -1,0 +1,489 @@
+Metadata-Version: 2.4
+Name: Alilnvest-Codal
+Version: 1.5.7
+Summary: Alilnvest-Codal — a resilient, typed Python client for Iranian Codal disclosures
+License-Expression: MIT
+Keywords: alilnvest,codal,iran,bourse,financial-statements,pandas
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: NOTICE.md
+Requires-Dist: requests>=2.28
+Requires-Dist: pandas>=2.0
+Requires-Dist: lxml>=5.0
+Requires-Dist: beautifulsoup4>=4.11
+Requires-Dist: openpyxl>=3.1
+Requires-Dist: xlrd>=2.0.1
+Requires-Dist: jdatetime>=5.0
+Provides-Extra: async
+Requires-Dist: httpx>=0.27; extra == "async"
+Provides-Extra: quality
+Requires-Dist: ruff>=0.6; extra == "quality"
+Requires-Dist: mypy>=1.11; extra == "quality"
+Requires-Dist: httpx>=0.27; extra == "quality"
+Dynamic: license-file
+
+# Alilnvest-Codal
+
+<p align="center">
+  <strong>کتابخانه پایتون برای دریافت و پردازش اطلاعات کدال ایران</strong>
+</p>
+
+<p align="center">
+  <a href="https://pypi.org/project/Alilnvest-Codal/">
+    <img src="https://img.shields.io/pypi/v/Alilnvest-Codal?label=PyPI&color=blue" alt="PyPI Version">
+  </a>
+  <a href="https://pypi.org/project/Alilnvest-Codal/">
+    <img src="https://img.shields.io/pypi/pyversions/Alilnvest-Codal" alt="Python Versions">
+  </a>
+  <a href="https://github.com/Alilnvest/Alilnvest-Codal">
+    <img src="https://img.shields.io/badge/GitHub-Repository-black?logo=github" alt="GitHub Repository">
+  </a>
+  <img src="https://img.shields.io/badge/Market-Iranian%20Capital%20Market-green" alt="Iranian Capital Market">
+  <img src="https://img.shields.io/badge/Data-Codal-orange" alt="Codal">
+  <img src="https://img.shields.io/badge/License-MIT-lightgrey" alt="MIT License">
+</p>
+
+---
+
+## حمایت از توسعه پروژه
+
+اگر این کتابخانه برای شما مفید است، می‌توانید با حمایت مالی به ادامه توسعه، نگهداری و اضافه‌شدن قابلیت‌های جدید کمک کنید. حمایت شما به بهبود ابزارهای داده کدال و توسعه قابلیت‌های جدید برای جامعه Python کمک می‌کند.
+
+<p align="center">
+  <a href="https://daramet.com/Alilnvest">
+    <img src="https://raw.githubusercontent.com/Alilnvest/Alilnvest-Codal/main/assets/donation.svg" alt="حمایت مالی از توسعه Alilnvest" width="920">
+  </a>
+</p>
+
+## معرفی
+
+**Alilnvest-Codal** یک کتابخانه پایتون برای جست‌وجو، دریافت و پردازش اطلاعیه‌ها و صورت‌های مالی منتشرشده در سامانه کدال ایران است.
+
+این کتابخانه برای توسعه‌دهندگان پایتون، تحلیلگران بنیادی، ربات‌های بورسی و سامانه‌های پردازش اطلاعات مالی طراحی شده است.
+
+با استفاده از این کتابخانه می‌توانید اطلاعیه‌های کدال را جست‌وجو کنید، صورت‌های مالی شرکت‌ها را دریافت کنید، گزارش‌های تاریخی را بررسی کنید و داده‌ها را برای تحلیل‌های بعدی آماده کنید.
+
+## قابلیت‌ها
+
+- دریافت صورت سود و زیان
+- دریافت ترازنامه یا صورت وضعیت مالی
+- دریافت صورت جریان وجوه نقد
+- جست‌وجوی اطلاعیه‌های منتشرشده در کدال
+- دریافت گزارش‌ها بر اساس بازه زمانی
+- پشتیبانی از تاریخ شمسی جلالی
+- مدیریت درخواست‌های شبکه
+- تلاش مجدد برای درخواست‌های ناموفق
+- مدیریت خطاهای شبکه و محدودیت نرخ درخواست
+- پشتیبانی از cache برای کاهش درخواست‌های تکراری
+- دریافت داده‌های ساختاریافته برای تحلیل‌های مالی
+- پشتیبانی از قابلیت‌های async به‌صورت اختیاری
+
+## نصب
+
+برای نصب آخرین نسخه از PyPI:
+
+```bash
+python -m pip install --upgrade Alilnvest-Codal
+```
+
+برای نصب قابلیت‌های اختیاری Async:
+
+```bash
+python -m pip install "Alilnvest-Codal[async]"
+```
+
+## پیش‌نیازها
+
+- Python نسخه 3.10 یا بالاتر
+- دسترسی اینترنت برای دریافت اطلاعات کدال
+- نصب وابستگی‌ها از طریق PyPI
+
+## شروع سریع
+
+پس از نصب، کتابخانه را وارد برنامه کنید:
+
+```python
+import alilnvest_codal as cp
+```
+
+### دریافت صورت سود و زیان
+
+```python
+import alilnvest_codal as cp
+
+reports = cp.income_statement(
+    "فولاد",
+    max_reports=5,
+)
+
+for report in reports:
+    print(report)
+```
+
+### دریافت ترازنامه
+
+```python
+import alilnvest_codal as cp
+
+reports = cp.balance_sheet(
+    "فولاد",
+    max_reports=5,
+)
+
+for report in reports:
+    print(report)
+```
+
+### دریافت صورت جریان وجوه نقد
+
+```python
+import alilnvest_codal as cp
+
+reports = cp.cash_flow_statement(
+    "فولاد",
+    max_reports=5,
+)
+
+for report in reports:
+    print(report)
+```
+
+### جست‌وجوی اطلاعیه‌های کدال
+
+```python
+import alilnvest_codal as cp
+
+letters = cp.search_letters(
+    "فولاد",
+    max_pages=1,
+)
+
+for letter in letters:
+    print(letter)
+```
+
+### دریافت نمای کلی اطلاعات مالی شرکت
+
+```python
+import alilnvest_codal as cp
+
+snapshot = cp.financial_snapshot("فولاد")
+
+print(snapshot)
+```
+
+## دریافت گزارش بر اساس بازه زمانی
+
+تاریخ‌ها باید با قالب شمسی زیر مشخص شوند:
+
+```text
+YYYY/MM/DD
+```
+
+مثال:
+
+```python
+import alilnvest_codal as cp
+
+reports = cp.income_statement(
+    "فولاد",
+    from_date="1403/01/01",
+    to_date="1403/12/30",
+    max_reports=20,
+)
+
+for report in reports:
+    print(report)
+```
+
+### پارامترهای تاریخ
+
+| پارامتر | توضیحات |
+|---|---|
+| `from_date` | تاریخ شروع دریافت اطلاعات |
+| `to_date` | تاریخ پایان دریافت اطلاعات |
+| `max_reports` | حداکثر تعداد گزارش‌های درخواستی |
+
+برای دریافت دقیق اطلاعات تاریخی، پیشنهاد می‌شود هر دو پارامتر `from_date` و `to_date` مشخص شوند.
+
+## تنظیم درخواست‌ها
+
+برای کنترل نحوه ارسال درخواست‌ها به کدال می‌توانید از تابع `configure()` استفاده کنید:
+
+```python
+import alilnvest_codal as cp
+
+cp.configure(
+    min_delay=2.0,
+    max_delay=3.5,
+    max_retries=2,
+    symbol_min_delay=15.0,
+    symbol_max_delay=20.0,
+)
+```
+
+### پارامترهای تنظیمات
+
+| پارامتر | توضیحات |
+|---|---|
+| `min_delay` | حداقل فاصله بین درخواست‌ها |
+| `max_delay` | حداکثر فاصله بین درخواست‌ها |
+| `max_retries` | تعداد تلاش مجدد در صورت خطای موقت |
+| `symbol_min_delay` | حداقل فاصله هنگام تغییر نماد |
+| `symbol_max_delay` | حداکثر فاصله هنگام تغییر نماد |
+
+### حالت محافظه‌کارانه
+
+برای اجرای طولانی‌مدت می‌توانید از تنظیمات محافظه‌کارانه استفاده کنید:
+
+```python
+import alilnvest_codal as cp
+
+cp.safe_mode()
+```
+
+### حالت سریع
+
+برای اجرای سبک و تعاملی:
+
+```python
+import alilnvest_codal as cp
+
+cp.fast_mode()
+```
+
+> رعایت فاصله زمانی و مدیریت درخواست‌ها فشار روی سرویس کدال را کاهش می‌دهد، اما هیچ تنظیمی تضمین نمی‌کند که IP یا دسترسی کاربر هرگز محدود نشود.
+
+## مدیریت محدودیت درخواست‌ها
+
+کتابخانه برای مدیریت بهتر شرایط شبکه از سازوکارهای زیر استفاده می‌کند:
+
+- رعایت مقدار `Retry-After` در پاسخ سرور
+- تلاش مجدد برای خطاهای موقت
+- استفاده از backoff
+- مدیریت خطاهای HTTP 429
+- Circuit Breaker برای شکست‌های متوالی
+- توقف درخواست‌های بعدی پس از تشخیص محدودیت شدید
+
+برای اجرای چند پردازه یا چند سرویس روی یک IP، استفاده از صف درخواست مرکزی و مدیریت نرخ مشترک توصیه می‌شود.
+
+## مدیریت Cache
+
+کتابخانه برای کاهش درخواست‌های تکراری از سیستم cache استفاده می‌کند.
+
+مزایای استفاده از cache:
+
+- کاهش درخواست‌های تکراری به کدال
+- استفاده مجدد از داده‌های دریافت‌شده
+- کاهش مصرف منابع شبکه
+- مناسب برای پردازش داده‌های تاریخی
+- کاهش احتمال دریافت چندباره داده‌های یکسان
+
+### پاک‌کردن Cache
+
+```python
+import alilnvest_codal as cp
+
+cp.clear_cache()
+```
+
+### تنظیمات محیطی Cache
+
+در صورت نیاز می‌توانید تنظیمات را از طریق متغیرهای محیطی مشخص کنید:
+
+```bash
+export CODAL_CACHE_DIR=~/bourse_reports/codal_cache
+export CODAL_TIMEOUT=45
+export CODAL_MAX_RETRIES=3
+export CODAL_LOG_LEVEL=INFO
+```
+
+در ویندوز:
+
+```powershell
+$env:CODAL_CACHE_DIR="$HOME\bourse_reports\codal_cache"
+$env:CODAL_TIMEOUT="45"
+$env:CODAL_MAX_RETRIES="3"
+$env:CODAL_LOG_LEVEL="INFO"
+```
+
+## مدیریت خطاها
+
+کتابخانه برای خطاهای رایج، استثناهای ساختاریافته ارائه می‌کند:
+
+```python
+import alilnvest_codal as cp
+
+try:
+    reports = cp.income_statement(
+        "نماد_نامعتبر",
+    )
+
+except cp.SymbolNotFoundError as exc:
+    print("نماد پیدا نشد:", exc.symbol)
+
+except cp.RateLimitError as exc:
+    print("محدودیت درخواست:", exc.retry_after)
+
+except cp.NetworkError as exc:
+    print("خطای شبکه:", exc.status_code)
+```
+
+### خطاهای قابل مدیریت
+
+| نوع خطا | توضیحات |
+|---|---|
+| `SymbolNotFoundError` | نماد یا اطلاعیه موردنظر پیدا نشده است |
+| `RateLimitError` | سرویس کدال محدودیت نرخ درخواست اعمال کرده است |
+| `NetworkError` | خطا در ارتباط با سرویس یا پاسخ HTTP |
+| `DataSourceError` | داده دریافت شده اما قابل پردازش نیست |
+| `ExcelParseError` | فایل یا جدول Excel قابل پردازش نیست |
+
+## استفاده از API غیرهم‌زمان
+
+برای استفاده از قابلیت‌های Async، ابتدا وابستگی اختیاری را نصب کنید:
+
+```bash
+python -m pip install "Alilnvest-Codal[async]"
+```
+
+سپس:
+
+```python
+import asyncio
+
+from alilnvest_codal import async_income_statement
+
+
+async def main():
+    reports = await async_income_statement(
+        "فولاد",
+        max_reports=5,
+    )
+
+    for report in reports:
+        print(report)
+
+
+asyncio.run(main())
+```
+
+## خروجی گرفتن از گزارش‌ها
+
+گزارش‌های مالی را می‌توان در قالب‌های مختلف ذخیره کرد:
+
+```python
+import alilnvest_codal as cp
+
+reports = cp.income_statement(
+    "فولاد",
+    max_reports=1,
+)
+
+report = reports[0]
+
+report.to_csv("income_statement.csv")
+report.to_excel("income_statement.xlsx")
+report.to_json("income_statement.json")
+```
+
+## کاربردها
+
+Alilnvest-Codal می‌تواند در پروژه‌های مختلف استفاده شود:
+
+1. توسعه سامانه‌های تحلیل بنیادی
+2. ساخت ربات‌های اطلاع‌رسانی بازار سرمایه
+3. جمع‌آوری تاریخچه صورت‌های مالی
+4. پردازش و مقایسه گزارش‌های مالی دوره‌ای
+5. توسعه داشبوردهای مالی
+6. ساخت سیستم‌های آرشیو اطلاعات کدال
+7. دریافت و پردازش خودکار اطلاعیه‌ها
+8. تولید گزارش‌های ساختاریافته برای سامانه‌های داخلی
+
+## اتصال به ربات‌ها و سامانه‌های اطلاع‌رسانی
+
+این کتابخانه می‌تواند در کنار برنامه‌های مستقل برای ارسال گزارش‌های مالی و اطلاعیه‌ها به پیام‌رسان‌ها استفاده شود.
+
+نمونه کاربردها:
+
+- ربات اطلاع‌رسانی بله
+- ربات تلگرام
+- سامانه گزارش‌دهی مالی
+- داشبورد تحلیل بنیادی
+- نرم‌افزارهای مدیریت اطلاعات بورسی
+
+اطلاعات ورود، توکن ربات‌ها و کلیدهای خصوصی باید در برنامه اصلی نگهداری شوند و نباید داخل کد کتابخانه یا مخزن عمومی قرار بگیرند.
+
+## اطلاعات فنی پروژه
+
+| مشخصات | مقدار |
+|---|---|
+| نام پروژه | Alilnvest-Codal |
+| نام پکیج PyPI | `Alilnvest-Codal` |
+| نام ماژول پایتون | `alilnvest_codal` |
+| زبان برنامه‌نویسی | Python |
+| حداقل نسخه Python | 3.10 |
+| منبع اطلاعات | سامانه کدال ایران |
+| نوع پروژه | کتابخانه دریافت و پردازش داده |
+| مجوز | MIT |
+| برند توسعه‌دهنده | Alilnvest |
+
+## لینک‌های رسمی
+
+- [مخزن GitHub](https://github.com/Alilnvest/Alilnvest-Codal)
+- [صفحه پروژه در PyPI](https://pypi.org/project/Alilnvest-Codal/)
+- [گزارش مشکلات و پیشنهادها](https://github.com/Alilnvest/Alilnvest-Codal/issues)
+- [کانال رسمی بله](https://ble.ir/Alilnvest)
+- [کانال رسمی تلگرام](https://t.me/Alilnvest)
+
+## برند پروژه
+
+- نام رسمی کتابخانه: **Alilnvest-Codal**
+- نام برند: **Alilnvest**
+- نام پیشنهادی خروجی گزارش‌ها: **Alilnvest Codal Report**
+
+## مشارکت در پروژه
+
+برای گزارش خطا، پیشنهاد قابلیت جدید یا مشارکت در توسعه پروژه:
+
+1. یک Issue در GitHub ایجاد کنید.
+2. مشکل یا پیشنهاد خود را با جزئیات توضیح دهید.
+3. در صورت امکان، نمونه کد و پیام خطا را اضافه کنید.
+4. برای تغییرات بزرگ، ابتدا یک Pull Request ایجاد کنید.
+
+## مجوز
+
+این پروژه تحت مجوز MIT منتشر شده است.
+
+برای اطلاع از شرایط دقیق استفاده، بازنشر و تغییرات، فایل [LICENSE](LICENSE) موجود در مخزن را مطالعه کنید.
+
+## سلب مسئولیت
+
+Alilnvest-Codal ابزاری برای دریافت و پردازش اطلاعات منتشرشده در سامانه کدال است و به‌تنهایی توصیه سرمایه‌گذاری محسوب نمی‌شود.
+
+دقت و دسترس‌پذیری اطلاعات به داده‌های منتشرشده و وضعیت سرویس کدال وابسته است. کاربران باید پیش از استفاده عملیاتی، صحت داده‌ها و محدودیت‌های دسترسی را بررسی کنند.
+
+---
+
+<p align="center">
+  <a href="https://daramet.com/Alilnvest">
+    <img src="https://raw.githubusercontent.com/Alilnvest/Alilnvest-Codal/main/assets/donation.svg" alt="حمایت از Alilnvest" width="920">
+  </a>
+</p>
+
+---
+
+<p align="center">
+  <strong>Alilnvest-Codal</strong>
+  <br>
+  کتابخانه پایتون برای داده‌های مالی و اطلاعیه‌های کدال ایران
+  <br>
+  توسعه‌یافته با برند Alilnvest
+</p>

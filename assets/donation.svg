@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="210" viewBox="0 0 920 210" role="img" aria-labelledby="title desc">
+  <title id="title">حمایت از توسعه Alilnvest</title>
+  <desc id="desc">اگر Alilnvest برای شما مفید است، از توسعه این پروژه حمایت کنید. لینک: daramet.com/Alilnvest</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="62%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#eef7f5"/>
+    </linearGradient>
+    <linearGradient id="button" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#159e89"/>
+      <stop offset="100%" stop-color="#0f806f"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#1f3754" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+  <rect x="8" y="8" width="904" height="194" rx="22" fill="url(#bg)" stroke="#dbe4ef" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="20" cy="10" r="112" fill="#159e89" opacity="0.10"/>
+  <text x="78" y="70" direction="rtl" unicode-bidi="bidi-override" fill="#159e89" font-family="Tahoma, Arial, sans-serif" font-size="18" font-weight="700">حمایت از توسعه متن‌باز</text>
+  <text x="78" y="108" direction="rtl" unicode-bidi="bidi-override" fill="#172033" font-family="Tahoma, Arial, sans-serif" font-size="25" font-weight="700">اگر Alilnvest برای شما مفید است،</text>
+  <text x="78" y="143" direction="rtl" unicode-bidi="bidi-override" fill="#172033" font-family="Tahoma, Arial, sans-serif" font-size="25" font-weight="700">از توسعه آن حمایت کنید</text>
+  <text x="78" y="177" fill="#8994a5" font-family="Arial, sans-serif" font-size="14" font-weight="600">Alilnvest · Codal Data for Python</text>
+  <rect x="650" y="59" width="220" height="60" rx="13" fill="url(#button)"/>
+  <text x="760" y="96" text-anchor="middle" direction="rtl" unicode-bidi="bidi-override" fill="#ffffff" font-family="Tahoma, Arial, sans-serif" font-size="18" font-weight="700">حمایت مالی از پروژه</text>
+  <text x="760" y="147" text-anchor="middle" fill="#637083" font-family="Arial, sans-serif" font-size="14">daramet.com/Alilnvest</text>
+  <text x="873" y="39" text-anchor="middle" fill="#159e89" font-family="Arial, sans-serif" font-size="25">♥</text>
+</svg>
