@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: Alilnvest-Codal
-Version: 1.5.7
+Version: 1.5.8
 Summary: Alilnvest-Codal — a resilient, typed Python client for Iranian Codal disclosures
 License-Expression: MIT
 Keywords: alilnvest,codal,iran,bourse,financial-statements,pandas
@@ -57,9 +57,26 @@ Dynamic: license-file
 اگر این کتابخانه برای شما مفید است، می‌توانید با حمایت مالی به ادامه توسعه، نگهداری و اضافه‌شدن قابلیت‌های جدید کمک کنید. حمایت شما به بهبود ابزارهای داده کدال و توسعه قابلیت‌های جدید برای جامعه Python کمک می‌کند.
 
 <p align="center">
+  <a href="https://github.com/Alilnvest/Alilnvest-Codal">
+    <img src="https://img.shields.io/badge/GitHub-%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D9%87%20%D9%85%D8%AE%D8%B2%D9%86-181717?logo=github&logoColor=white" alt="مشاهده مخزن GitHub">
+  </a>
+  <a href="https://pypi.org/project/Alilnvest-Codal/">
+    <img src="https://img.shields.io/badge/PyPI-%D9%86%D8%B5%D8%A8%20%D9%BE%DA%A9%DB%8C%D8%AC-3775A9?logo=pypi&logoColor=white" alt="نصب از PyPI">
+  </a>
+  <a href="https://daramet.com/Alilnvest">
+    <img src="https://img.shields.io/badge/%D8%AD%D9%85%D8%A7%DB%8C%D8%AA%20%D8%A7%D8%B2%20%D8%AA%D9%88%D8%B3%D8%B9%D9%87-Alilnvest-159e89" alt="حمایت از توسعه Alilnvest">
+  </a>
+</p>
+
+<p align="center">
   <a href="https://daramet.com/Alilnvest">
     <img src="https://raw.githubusercontent.com/Alilnvest/Alilnvest-Codal/main/assets/donation.svg" alt="حمایت مالی از توسعه Alilnvest" width="920">
   </a>
+</p>
+
+<p align="center">
+  <strong>لینک حمایت مالی:</strong>
+  <a href="https://daramet.com/Alilnvest">https://daramet.com/Alilnvest</a>
 </p>
 
 ## معرفی
@@ -437,9 +454,10 @@ Alilnvest-Codal می‌تواند در پروژه‌های مختلف استفا
 
 ## لینک‌های رسمی
 
-- [مخزن GitHub](https://github.com/Alilnvest/Alilnvest-Codal)
-- [صفحه پروژه در PyPI](https://pypi.org/project/Alilnvest-Codal/)
+- [نصب و دریافت آخرین نسخه از PyPI](https://pypi.org/project/Alilnvest-Codal/)
+- [مشاهده مخزن GitHub و کد منبع](https://github.com/Alilnvest/Alilnvest-Codal)
 - [گزارش مشکلات و پیشنهادها](https://github.com/Alilnvest/Alilnvest-Codal/issues)
+- [حمایت مالی از توسعه پروژه](https://daramet.com/Alilnvest)
 - [کانال رسمی بله](https://ble.ir/Alilnvest)
 - [کانال رسمی تلگرام](https://t.me/Alilnvest)
 
@@ -473,9 +491,25 @@ Alilnvest-Codal ابزاری برای دریافت و پردازش اطلاعا�
 ---
 
 <p align="center">
+  <a href="https://github.com/Alilnvest/Alilnvest-Codal">
+    <img src="https://img.shields.io/badge/GitHub-%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D9%87%20%D9%85%D8%AE%D8%B2%D9%86-181717?logo=github&logoColor=white" alt="مشاهده مخزن GitHub">
+  </a>
+  <a href="https://pypi.org/project/Alilnvest-Codal/">
+    <img src="https://img.shields.io/badge/PyPI-%D9%86%D8%B5%D8%A8%20%D9%BE%DA%A9%DB%8C%D8%AC-3775A9?logo=pypi&logoColor=white" alt="نصب از PyPI">
+  </a>
+  <a href="https://daramet.com/Alilnvest">
+    <img src="https://img.shields.io/badge/%D8%AD%D9%85%D8%A7%DB%8C%D8%AA%20%D8%A7%D8%B2%20%D8%AA%D9%88%D8%B3%D8%B9%D9%87-Alilnvest-159e89" alt="حمایت از توسعه Alilnvest">
+  </a>
+</p>
+
+<p align="center">
   <a href="https://daramet.com/Alilnvest">
     <img src="https://raw.githubusercontent.com/Alilnvest/Alilnvest-Codal/main/assets/donation.svg" alt="حمایت از Alilnvest" width="920">
   </a>
+</p>
+
+<p align="center">
+  <a href="https://daramet.com/Alilnvest">https://daramet.com/Alilnvest</a>
 </p>
 
 ---
